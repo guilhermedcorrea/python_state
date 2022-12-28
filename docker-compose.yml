@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  web:
+  app:
     build: ./app
     container_name: appflask
     restart: always

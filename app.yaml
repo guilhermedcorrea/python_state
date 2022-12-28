@@ -1,0 +1,7 @@
+runtime: python
+env: flex
+entrypoint: gunicorn -b :$PORT wsgi:app
+
+runtim_config:
+  python_version: 3
+
