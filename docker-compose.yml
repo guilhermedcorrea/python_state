@@ -1,20 +1,28 @@
-version: "3"
+version: "3.7"
 
-services:
+services: 
   app:
-    build: ./app
-    container_name: appflask
-    restart: always
-    enviroment:
-      - APP_NAME=MyFlaskApp
-      - DB_USERNAME=teste
-    expose:
-      - 8080
-  nginx:
-    build: ./nginx
-    container_name: nginx
+    build: app
     restart: always
     ports:
-      - "80:80"
+      - 5000:5000
+    environment:
+      - DEBUG=1
+    networks:
+      - flask_network
+
+  proxy:
+    build: proxy
+    restart: always
+    ports:
+      - 80:80
+    networks:
+      - flask_network
+
+networks:
+  flask_network:
+    
+
+
 
 
