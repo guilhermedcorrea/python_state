@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+
+  web:
+
+    build: ./app
+
+    container_name: appflask
+
+    restart: always
+
+    enviroment:
+      - APP_NAME=MyFlaskApp
+      - DB_USERNAME=teste
+  
+    expose:
+      - 8080
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    restart: always
+    ports:
+      - "80:80"
+
+
